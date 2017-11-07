@@ -22,3 +22,9 @@ Route::get('/insert', function (){
 	$address = new Address(['name' => 'Jl. panjang sekali.']);
 	$user->address()->save($address);
 });
+Route::get('/update', function(){
+	$address = Address::whereUserId(1)->first();
+	
+	$address->name ="Jl. panjang tapi nyampe";
+	$address->save();
+});
