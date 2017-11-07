@@ -28,3 +28,12 @@ Route::get('/update', function(){
 	$address->name ="Jl. panjang tapi nyampe";
 	$address->save();
 });
+Route::get('/read', function(){
+	$user = User::findOrFail(1);
+	echo $user->name;
+	echo $user->address->name;
+});
+Route::get('/delete', function(){
+	$user = User::findOrFail(1);
+	$user->address()->delete();
+});
